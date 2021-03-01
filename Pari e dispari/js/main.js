@@ -7,9 +7,16 @@ console.log(pariDispari);
 var numeroUtente = parseInt(prompt("Scrivi un numero da 1 a 5"));
 console.log(numeroUtente);
 
-var numeroComputer;
-numeroComputer = parseInt(document.getElementById("computer_number").innerHTML = Math.floor(Math.random() * 5) +1);
 
+// Generiamo un numero random con una funzione
+
+function randomNumber(min, max) {
+ var result = Math.floor(Math.random() * (max - min)) + min;
+ return result; 
+}
+
+var numeroComputer = randomNumber(1, 5);
+console.log("Il numero del tuo avversario è " + numeroComputer);
 
 // Sommiamo i due numeri
 var sum = (numeroUtente + numeroComputer);
@@ -17,18 +24,24 @@ console.log(sum);
 
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 
-function isEvenOrOdd(sum) {
- if (sum % 2 == 0) {
-  console.log("numero pari");
- }
- else if ( sum % 2 != 0) {
-  console.log("numero dispari")
- }
- else {
-  console.log("numeri uguali");
- }
+function isEvenOrOdd(number) {
 
+ if (number % 2 == 0) {
+  return true;
+ }
+ return false;
 }
-console.log(isEvenOrOdd());
+
+isEvenOrOdd(sum);
+console.log(isEvenOrOdd(sum));
+
+var result = (isEvenOrOdd(sum))? "pari":"dispari";
 
 // Dichiariamo se l'utente ha vinto.
+
+if (result == pariDispari) {
+ console.log("Hai vinto!");
+}
+else {
+ console.log("Hai perso!");
+}
